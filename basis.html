@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basis | Case Study · Kulsum Mohammed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Hurricane&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --cream: #FAF8F4; --ink: #1A1008; --ink-light: #6B5B4B; --border: rgba(26,16,8,0.1); --accent: #D4312A; --accent-mid: #E04038; --accent-light: #E8837A; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; animation: page-in 0.4s ease forwards; }
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--cream); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Hurricane', cursive; font-size: 28px; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.cs-hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 65px; overflow: hidden; }
+.cs-hero-left { background: var(--accent); position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 64px 56px; min-height: calc(100vh - 65px); overflow: hidden; }
+@keyframes hero-fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ghost-breathe { 0%, 100% { color: rgba(250,248,244,0.04); } 50% { color: rgba(250,248,244,0.13); } }
+.cs-hero-spotlight { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(250,248,244,0.09) 0%, transparent 70%); pointer-events: none; transform: translate(-50%, -50%); left: 50%; top: 50%; opacity: 0; transition: opacity 0.4s ease; z-index: 0; }
+.cs-hero-left:hover .cs-hero-spotlight { opacity: 1; }
+.cs-hero-left::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"); pointer-events: none; }
+.cs-hero-ghost { position: absolute; top: 32px; right: 32px; font-family: 'Playfair Display', serif; font-size: clamp(120px, 16vw, 200px); font-weight: 900; color: rgba(250,248,244,0.06); line-height: 1; letter-spacing: -8px; pointer-events: none; user-select: none; animation: ghost-breathe 5s ease-in-out infinite; }
+.cs-back { position: relative; z-index: 1; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,248,244,0.4); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 48px; transition: color 0.2s; opacity: 0; animation: hero-fade-up 0.6s ease forwards 0.1s; }
+.cs-back:hover { color: rgba(250,248,244,0.7); }
+.cs-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.4); margin-bottom: 20px; position: relative; z-index: 1; opacity: 0; animation: hero-fade-up 0.6s ease forwards 0.25s; }
+.cs-title { font-family: 'Playfair Display', serif; font-size: clamp(64px, 8vw, 112px); font-weight: 900; color: var(--cream); line-height: 0.95; letter-spacing: -4px; margin-bottom: 40px; position: relative; z-index: 1; opacity: 0; animation: hero-fade-up 0.7s ease forwards 0.4s; }
+.cs-rule { width: 48px; height: 1px; background: rgba(250,248,244,0.3); margin-bottom: 24px; position: relative; z-index: 1; opacity: 0; animation: hero-fade-up 0.5s ease forwards 0.6s; }
+.cs-tagline { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(250,248,244,0.6); line-height: 1.75; max-width: 340px; position: relative; z-index: 1; opacity: 0; animation: hero-fade-up 0.6s ease forwards 0.7s; }
+.cs-hero-right { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; border-left: 1px solid var(--border); }
+.cs-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 56px; }
+.cs-meta-item { padding: 24px 20px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cs-meta-item:nth-child(even) { border-right: none; }
+.cs-meta-item:nth-last-child(-n+2) { border-bottom: none; }
+.cs-meta-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); opacity: 0.8; margin-bottom: 8px; display: block; }
+.cs-meta-val { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; color: var(--ink); line-height: 1.5; }
+.cs-chapters { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); }
+.cs-chapter-link { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: padding-left 0.25s ease; }
+.cs-chapter-link:hover { padding-left: 8px; }
+.cs-chapter-num { font-family: 'Playfair Display', serif; font-size: 12px; font-weight: 400; font-style: italic; color: var(--accent); opacity: 0.5; }
+.cs-chapter-name { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--ink); flex: 1; padding: 0 20px; }
+.cs-chapter-arrow { font-size: 14px; color: var(--ink-light); opacity: 0.3; transition: opacity 0.2s, transform 0.2s; }
+.cs-chapter-link:hover .cs-chapter-arrow { opacity: 0.8; transform: translateX(4px); }
+.cs-overview { padding: 120px 48px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 200px 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; width: 100%; }
+.overview-label-col { padding-top: 6px; }
+.overview-label-text { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; font-style: italic; color: var(--accent); }
+.overview-label-rule { width: 1px; height: 60px; background: var(--accent); opacity: 0.2; margin-top: 16px; }
+.overview-eyebrow { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); opacity: 0.6; margin-bottom: 24px; }
+.overview-headline { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.8vw, 36px); font-weight: 900; color: var(--ink); letter-spacing: -0.5px; line-height: 1.25; margin-bottom: 28px; }
+.overview-body { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 300; color: var(--ink-light); line-height: 1.85; max-width: 580px; }
+.overview-body p { margin-bottom: 20px; }
+.overview-body p:last-child { margin-bottom: 0; }
+.cs-tldr { padding: 100px 48px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 200px 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; width: 100%; }
+.tldr-content { display: flex; align-items: center; }
+.tldr-statement { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.6vw, 42px); font-weight: 400; font-style: italic; color: var(--ink); letter-spacing: -0.5px; line-height: 1.35; max-width: 820px; }
+.img-placeholder { width: 100%; position: relative; overflow: hidden; background: #EBD8D5; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.img-placeholder:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(26,16,8,0.16), 0 8px 16px rgba(26,16,8,0.08); }
+.img-placeholder::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E"); }
+.img-placeholder::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 24px, rgba(212,49,42,0.04) 24px, rgba(212,49,42,0.04) 25px); }
+.img-label { position: absolute; bottom: 16px; left: 16px; font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); opacity: 0.4; z-index: 1; }
+.ratio-hero { aspect-ratio: 16/7; } .ratio-landscape { aspect-ratio: 4/3; }
+
+/* Ready for real photos, matching Tylt's treatment */
+.img-frame { width: 100%; position: relative; overflow: hidden; border-radius: 2px; cursor: default; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.img-frame:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(26,16,8,0.16), 0 8px 16px rgba(26,16,8,0.08); }
+.img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.img-frame:hover img { transform: scale(1.04); }
+.img-frame-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,16,8,0.7) 0%, rgba(26,16,8,0.15) 45%, transparent 70%); opacity: 0; transition: opacity 0.4s ease; display: flex; align-items: flex-end; padding: 18px; }
+.img-frame:hover .img-frame-overlay { opacity: 1; }
+.img-frame-caption { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,248,244,0.9); transform: translateY(8px); transition: transform 0.4s ease 0.05s; }
+.img-frame:hover .img-frame-caption { transform: translateY(0); }
+.cs-work { padding: 120px 48px; border-top: 1px solid var(--border); }
+.work-intro { max-width: 1100px; margin: 0 auto 64px; }
+.work-intro-headline { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.6vw, 44px); font-weight: 900; color: var(--ink); letter-spacing: -1px; margin-top: 12px; }
+.work-beat { max-width: 1100px; margin: 0 auto 88px; }
+.work-beat:last-child { margin-bottom: 0; }
+.work-beat-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); opacity: 0.7; margin-bottom: 16px; }
+.work-beat-gallery { display: grid; gap: 16px; margin-top: 16px; }
+.work-beat-gallery.cols-2 { grid-template-columns: 1fr 1fr; }
+.work-beat-caption { font-family: 'Playfair Display', serif; font-size: clamp(17px, 1.7vw, 21px); font-weight: 400; font-style: italic; color: var(--ink-light); line-height: 1.5; max-width: 640px; margin-top: 32px; }
+
+.case-notes { margin-top: 32px; max-width: 620px; }
+.case-notes-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.case-tab {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid rgba(212,49,42,0.25);
+  border-radius: 20px;
+  padding: 7px 14px 7px 10px;
+  cursor: pointer;
+  transition: background 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.case-tab svg { width: 12px; height: 12px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s ease; }
+.case-tab:hover { border-color: var(--accent); transform: translateY(-1px); }
+.case-tab.active { background: var(--accent); color: var(--cream); border-color: var(--accent); transform: translateY(-1px); }
+.case-tab.active svg { stroke: var(--cream); animation: icon-wiggle 0.5s ease; }
+@keyframes icon-wiggle { 0% { transform: rotate(0deg) scale(1); } 30% { transform: rotate(-14deg) scale(1.2); } 60% { transform: rotate(10deg) scale(1.08); } 100% { transform: rotate(0deg) scale(1); } }
+
+.case-notes-panel { position: relative; min-height: 76px; perspective: 900px; }
+.case-note {
+  position: absolute; top: 0; left: 0; width: 100%;
+  font-family: 'Playfair Display', serif; font-size: clamp(15px, 1.5vw, 17px); font-weight: 400; font-style: italic;
+  color: var(--ink-light); line-height: 1.55;
+  opacity: 0;
+  transform-origin: top center;
+  transform: rotateX(-100deg);
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.35s ease;
+  pointer-events: none;
+}
+.case-note.active { opacity: 1; transform: rotateX(0deg); pointer-events: auto; transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease 0.1s; }
+.case-stat { font-style: normal; font-weight: 800; color: var(--accent); display: inline-block; }
+.case-note.active .case-stat { animation: stat-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both; }
+@keyframes stat-pop { 0% { transform: scale(0.6); opacity: 0; } 65% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(1); } }
+
+.case-notes-progress { display: flex; gap: 6px; margin-top: 18px; }
+.case-progress-seg { flex: 1; height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; position: relative; }
+.case-progress-seg-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent); border-radius: 3px; }
+.case-progress-seg.filled .case-progress-seg-fill { width: 100%; }
+.case-progress-seg.active .case-progress-seg-fill { animation: case-progress 4.5s linear; }
+.case-progress-seg.active.paused .case-progress-seg-fill { animation-play-state: paused; }
+@keyframes case-progress { from { width: 0%; } to { width: 100%; } }
+.cs-results { padding: 120px 48px; border-top: 1px solid var(--border); background: var(--accent); scroll-margin-top: 80px; }
+.results-inner { max-width: 1100px; margin: 0 auto; }
+.results-eyebrow { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.35); margin-bottom: 48px; }
+.results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-bottom: 64px; }
+.result-item { padding: 32px 40px; border-right: 1px solid rgba(250,248,244,0.12); }
+.result-item:first-child { padding-left: 0; }
+.result-item:last-child { border-right: none; }
+.result-val { font-family: 'Playfair Display', serif; font-size: clamp(44px, 5vw, 68px); font-weight: 900; color: var(--cream); letter-spacing: -2px; line-height: 1; margin-bottom: 12px; }
+.result-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: rgba(250,248,244,0.5); line-height: 1.5; max-width: 320px; }
+@media (max-width: 700px) { .results-grid { grid-template-columns: 1fr; } .result-item { border-right: none; border-bottom: 1px solid rgba(250,248,244,0.12); padding: 28px 0; } .result-item:last-child { border-bottom: none; } }
+.results-changed { border-top: 1px solid rgba(250,248,244,0.12); padding-top: 48px; }
+.changed-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.35); margin-bottom: 24px; }
+.changed-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.changed-item { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: rgba(250,248,244,0.65); border: 1px solid rgba(250,248,244,0.2); padding: 8px 16px; border-radius: 20px; transition: border-color 0.2s ease, color 0.2s ease; }
+.changed-item:hover { border-color: rgba(250,248,244,0.5); color: var(--cream); }
+.impact-shift { text-align: center; padding: 72px 0; margin-bottom: 64px; border-top: 1px solid rgba(250,248,244,0.12); }
+.shift-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.35); margin-bottom: 44px; }
+.shift-before { margin-bottom: 28px; }
+.shift-strike { position: relative; display: inline-block; font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.6vw, 30px); font-weight: 400; font-style: italic; color: rgba(250,248,244,0.4); }
+.shift-strike::after { content: ''; position: absolute; left: 0; right: 0; top: 52%; height: 2px; background: rgba(26,16,8,0.4); transform: scaleX(0); transform-origin: left; transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1); }
+.impact-shift.visible .shift-strike::after { transform: scaleX(1); }
+.shift-transform { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 28px; }
+.shift-transform-icon { width: 22px; height: 22px; opacity: 0; transform: rotate(-90deg) scale(0.4); transition: opacity 0.5s ease 0.7s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s; }
+.impact-shift.visible .shift-transform-icon { opacity: 1; transform: rotate(0deg) scale(1); }
+.shift-transform-icon svg { width: 100%; height: 100%; stroke: rgba(250,248,244,0.45); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.shift-arrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,248,244,0.45); }
+.shift-after { position: relative; display: inline-block; font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; font-style: italic; color: var(--cream); opacity: 0; transform: scale(0.85) translateY(12px); transition: opacity 0.5s ease 0.95s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.95s; }
+.impact-shift.visible .shift-after { opacity: 1; transform: scale(1) translateY(0); }
+.shift-after::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--cream); transition: width 0.3s ease; }
+.shift-after:hover::after { width: 100%; }
+.cs-next { padding: 120px 48px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 1100px; margin: 0 auto; width: 100%; }
+.next-left { padding-right: 64px; border-right: 1px solid var(--border); }
+.next-eyebrow { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); opacity: 0.6; margin-bottom: 20px; }
+.next-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: var(--ink); letter-spacing: -1px; margin-bottom: 12px; }
+.next-sub { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; color: var(--ink-light); line-height: 1.7; margin-bottom: 32px; max-width: 360px; }
+.btn-cs { display: inline-flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--cream); background: var(--accent); padding: 14px 28px; border-radius: 2px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+.btn-cs:hover { background: var(--accent-mid); transform: translateY(-2px); }
+.next-handoff { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 400; font-style: italic; color: var(--ink-light); margin-top: 40px; margin-bottom: 4px; }
+.next-sig { font-family: 'Hurricane', cursive; font-size: 32px; color: var(--accent); opacity: 0.7; }
+.next-right { padding-left: 64px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+.next-back { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.next-back:hover { color: var(--ink); }
+footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.footer-logo { font-family: 'Hurricane', cursive; font-size: 26px; color: var(--ink); text-decoration: none; }
+.footer-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--ink-light); opacity: 0.5; }
+.footer-back { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.footer-back:hover { color: var(--ink); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* DEVICE NOTICE — desktop and laptop only. Tablets and phones see this instead. */
+.device-notice { display: none; }
+
+@media (max-width: 1024px) {
+  body > *:not(.device-notice) { display: none !important; }
+  body { overflow: hidden; height: 100vh; }
+
+  .device-notice {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .device-notice::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='dn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23dn)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .device-notice-nav {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative; z-index: 1;
+  }
+  .device-notice-logo {
+    font-family: 'Hurricane', cursive;
+    font-size: 26px;
+    color: var(--ink);
+  }
+
+  .device-notice-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 32px;
+    position: relative; z-index: 1;
+  }
+
+  .device-notice-icon {
+    width: 72px; height: 72px;
+    margin-bottom: 36px;
+  }
+  .device-notice-icon svg {
+    width: 100%; height: 100%;
+    stroke: #6B1230;
+    fill: none;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .device-notice-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #6B1230;
+    opacity: 0.75;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .device-notice-eyebrow::before,
+  .device-notice-eyebrow::after {
+    content: '';
+    width: 24px; height: 1px;
+    background: #6B1230;
+    opacity: 0.4;
+  }
+
+  .device-notice-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.28;
+    max-width: 320px;
+    margin-bottom: 8px;
+  }
+  .device-notice-title em {
+    font-style: italic;
+    color: #6B1230;
+  }
+
+  .device-notice-rule {
+    width: 40px; height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .device-notice-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.75;
+    max-width: 300px;
+    margin-bottom: 36px;
+  }
+
+  .device-notice-sig {
+    font-family: 'Hurricane', cursive;
+    font-size: 30px;
+    color: #6B1230;
+    opacity: 0.65;
+  }
+
+  .device-notice-footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .device-notice-footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-light);
+    opacity: 0.4;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="device-notice">
+  <div class="device-notice-nav">
+    <span class="device-notice-logo">Kulsum Mohammed</span>
+  </div>
+  <div class="device-notice-body">
+    <div class="device-notice-icon">
+      <svg viewBox="0 0 64 64"><path d="M8 14a3 3 0 0 1 3-3h18v40H11a3 3 0 0 1-3-3V14Z"/><path d="M56 14a3 3 0 0 0-3-3H35v40h18a3 3 0 0 0 3-3V14Z"/><path d="M29 11v40"/><path d="M14 20h9M14 27h9M14 34h6M41 20h9M41 27h9M41 34h6"/></svg>
+    </div>
+    <p class="device-notice-eyebrow">A Note</p>
+    <h1 class="device-notice-title">This portfolio is best experienced<br>on <em>desktop.</em></h1>
+    <div class="device-notice-rule"></div>
+    <p class="device-notice-text">I'm currently crafting the mobile and tablet experience. For now, please view it on a laptop or desktop for the best experience.</p>
+    <p class="device-notice-sig">Kulsum</p>
+  </div>
+  <div class="device-notice-footer">
+    <p>See you on a bigger screen</p>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Kulsum Mohammed</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<section class="cs-hero">
+  <div class="cs-hero-left" id="heroLeft">
+    <div class="cs-hero-spotlight" id="heroSpotlight"></div>
+    <div class="cs-hero-ghost">Basis</div>
+    <a href="index.html#featured" class="cs-back">← Back to projects</a>
+    <p class="cs-label">Case Study &nbsp;·&nbsp; 2023 &nbsp;·&nbsp; Fintech</p>
+    <h1 class="cs-title">Basis</h1>
+    <div class="cs-rule"></div>
+    <p class="cs-tagline">Basis needed social and video content that moved as fast as the team did. Over nine months I designed the campaigns and produced the video content that kept up with a fintech startup running hard.</p>
+  </div>
+  <div class="cs-hero-right">
+    <div class="cs-meta-grid">
+      <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-val">Graphic Designer</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label">Year</span><span class="cs-meta-val">2023, 9 Months</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label">Industry</span><span class="cs-meta-val">Fintech / Financial Services</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-val">Social · Video</span></div>
+    </div>
+    <div class="cs-chapters">
+      <a class="cs-chapter-link" href="#tldr"><span class="cs-chapter-num">01</span><span class="cs-chapter-name">TL;DR</span><span class="cs-chapter-arrow">→</span></a>
+      <a class="cs-chapter-link" href="#role"><span class="cs-chapter-num">02</span><span class="cs-chapter-name">My Role</span><span class="cs-chapter-arrow">→</span></a>
+      <a class="cs-chapter-link" href="#work"><span class="cs-chapter-num">03</span><span class="cs-chapter-name">The Work</span><span class="cs-chapter-arrow">→</span></a>
+      <a class="cs-chapter-link" href="#impact"><span class="cs-chapter-num">04</span><span class="cs-chapter-name">Impact</span><span class="cs-chapter-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+<section class="cs-tldr reveal" id="tldr">
+  <div class="overview-label-col"><p class="overview-label-text">TL;DR</p><div class="overview-label-rule"></div></div>
+  <div class="tldr-content"><p class="tldr-statement">This wasn't one project. It was nine months of turning fast moving ideas into design the team could actually ship.</p></div>
+</section>
+<section class="cs-overview reveal" id="role">
+  <div class="overview-label-col"><p class="overview-label-text">My Role</p><div class="overview-label-rule"></div></div>
+  <div class="overview-content">
+    <p class="overview-eyebrow">What I actually did</p>
+    <h2 class="overview-headline">I joined Basis as a Graphic Designer.</h2>
+    <div class="overview-body">
+      <p>Some weeks I was turning around A/B creative for a paid social test. Other weeks I was cutting a brand video or producing animated assets for a campaign that needed to move fast.</p>
+      <p>Everything fed into the same goal: giving a fast moving team design they didn't have to wait for.</p>
+    </div>
+  </div>
+</section>
+<section class="cs-work reveal" id="work">
+  <div class="work-intro"><p class="overview-eyebrow">The work</p><h2 class="work-intro-headline">Two disciplines, one fast moving team.</h2></div>
+  <div class="work-beat reveal">
+    <p class="work-beat-label">Social & Campaigns</p>
+    <div class="img-frame ratio-hero"><img src="images/basis-campaign-creative.jpg" alt="Basis: Campaign Creative" /><div class="img-frame-overlay"><span class="img-frame-caption">Basis: Campaign Creative</span></div></div>
+    <div class="work-beat-gallery cols-2">
+      <div class="img-frame ratio-landscape"><img src="images/basis-paid-social-ad.jpg" alt="Paid Social Ad" /><div class="img-frame-overlay"><span class="img-frame-caption">Paid Social Ad</span></div></div>
+      <div class="img-frame ratio-landscape"><img src="images/basis-ab-test-variant.jpg" alt="A/B Test Variant" /><div class="img-frame-overlay"><span class="img-frame-caption">A/B Test Variant</span></div></div>
+    </div>
+    <div class="case-notes">
+      <div class="case-notes-tabs">
+        <button class="case-tab active" data-tab="0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v.01M12 8v5"/></svg>Problem</button>
+        <button class="case-tab" data-tab="1"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.1 6.1L7 20l-3-3 7.7-7.7a5 5 0 016.1-6.1z"/></svg>Approach</button>
+        <button class="case-tab" data-tab="2"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 11V3h-8"/></svg>Impact</button>
+      </div>
+      <div class="case-notes-panel">
+        <p class="case-note active" data-note="0">Every paid test needed new creative fast, and there was no system in place to keep up with how often campaigns needed to turn around.</p>
+        <p class="case-note" data-note="1">I built and iterated social and campaign visuals test after test, turning what we learned into the next version within days, not weeks.</p>
+        <p class="case-note" data-note="2">A visual refresh of the social presence led to a <span class="case-stat">40%</span> increase in Instagram engagement.</p>
+      </div>
+      <div class="case-notes-progress">
+        <div class="case-progress-seg active" data-seg="0"><div class="case-progress-seg-fill"></div></div>
+        <div class="case-progress-seg" data-seg="1"><div class="case-progress-seg-fill"></div></div>
+        <div class="case-progress-seg" data-seg="2"><div class="case-progress-seg-fill"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="work-beat reveal">
+    <p class="work-beat-label">Video</p>
+    <div class="img-frame ratio-hero"><img src="images/basis-video-still.jpg" alt="Basis: Brand Video Still" /><div class="img-frame-overlay"><span class="img-frame-caption">Basis: Brand Video Still</span></div></div>
+    <div class="work-beat-gallery cols-2">
+      <div class="img-frame ratio-landscape"><img src="images/basis-animated-asset.jpg" alt="Animated Asset" /><div class="img-frame-overlay"><span class="img-frame-caption">Animated Asset</span></div></div>
+      <div class="img-frame ratio-landscape"><img src="images/basis-social-video.jpg" alt="Social Video Content" /><div class="img-frame-overlay"><span class="img-frame-caption">Social Video Content</span></div></div>
+    </div>
+    <div class="case-notes">
+      <div class="case-notes-tabs">
+        <button class="case-tab active" data-tab="0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v.01M12 8v5"/></svg>Problem</button>
+        <button class="case-tab" data-tab="1"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.1 6.1L7 20l-3-3 7.7-7.7a5 5 0 016.1-6.1z"/></svg>Approach</button>
+        <button class="case-tab" data-tab="2"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 11V3h-8"/></svg>Impact</button>
+      </div>
+      <div class="case-notes-panel">
+        <p class="case-note active" data-note="0">Static creative wasn't always enough to carry a campaign or hold attention on social.</p>
+        <p class="case-note" data-note="1">I produced animated assets and edited brand videos that gave campaigns and social content more life, without slowing the team down.</p>
+        <p class="case-note" data-note="2">Video became part of the standard toolkit for campaigns, not an occasional add on, across <span class="case-stat">9</span> months of steady output.</p>
+      </div>
+      <div class="case-notes-progress">
+        <div class="case-progress-seg active" data-seg="0"><div class="case-progress-seg-fill"></div></div>
+        <div class="case-progress-seg" data-seg="1"><div class="case-progress-seg-fill"></div></div>
+        <div class="case-progress-seg" data-seg="2"><div class="case-progress-seg-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cs-results reveal" id="impact">
+  <div class="results-inner">
+    <p class="results-eyebrow">Impact</p>
+    <div class="results-grid">
+      <div class="result-item"><div class="result-val" data-target="40" data-suffix="%">0%</div><div class="result-label">Increase in Instagram engagement after a visual refresh of the social presence.</div></div>
+      <div class="result-item"><div class="result-val">9</div><div class="result-label">Months building campaigns, brand collateral and video, back to back.</div></div>
+    </div>
+    <div class="impact-shift" id="impactShift">
+      <p class="shift-label">How the social presence looked</p>
+      <p class="shift-before"><span class="shift-strike">Generic templates nobody clicked on.</span></p>
+      <div class="shift-transform">
+        <span class="shift-transform-icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14.5-4.5M20 12a8 8 0 0 1-14.5 4.5"/><path d="M18 3v5h-5M6 21v-5h5"/></svg></span>
+        <p class="shift-arrow">became</p>
+      </div>
+      <p class="shift-after">Content people actually engaged with.</p>
+    </div>
+    <div class="results-changed">
+      <p class="changed-label">Scope of Work</p>
+      <div class="changed-list">
+        <span class="changed-item">Paid Campaign Creative</span><span class="changed-item">Social Creatives</span><span class="changed-item">A/B Test Visuals</span>
+        <span class="changed-item">Animated Assets</span><span class="changed-item">Brand Video Editing</span><span class="changed-item">Influencer & Community Content</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cs-overview reveal" id="reflections">
+  <div class="overview-label-col"><p class="overview-label-text">Reflections</p><div class="overview-label-rule"></div></div>
+  <div class="overview-content">
+    <p class="overview-eyebrow">What this taught me</p>
+    <h2 class="overview-headline">Attention is earned one test at a time.</h2>
+    <div class="overview-body">
+      <p>Turning around new creative for every paid test taught me that there's no single version that wins. It's the pattern across dozens of small iterations that tells you what actually gets attention.</p>
+      <p>Since then I default to testing more, smaller versions instead of waiting to ship one perfect one.</p>
+    </div>
+  </div>
+</section>
+<section class="cs-next reveal">
+  <div class="next-left">
+    <p class="next-eyebrow">Next Case Study</p>
+    <h2 class="next-title">Creative Vision Studios</h2>
+    <p class="next-sub">Full brand identity and digital presence for a creative production studio, the work that turned their pitch into their portfolio.</p>
+    <a href="cvs.html" class="btn-cs">Read the case study →</a>
+    <p class="next-handoff">That's Basis. Here's where it all actually started.</p>
+    <p class="next-sig">Kulsum</p>
+  </div>
+  <div class="next-right">
+    <a href="index.html#featured" class="next-back">← All projects</a>
+    <a href="work.html" class="next-back">View the gallery</a>
+    <a href="about.html" class="next-back">About Kulsum</a>
+  </div>
+</section>
+<footer>
+  <a href="index.html" class="footer-logo">Kulsum Mohammed</a>
+  <p class="footer-copy">© 2026 · Basis Case Study</p>
+  <a href="index.html" class="footer-back">← Home</a>
+</footer>
+<script>
+// THE WORK: case notes (Problem / Approach / Impact) mini carousels
+document.querySelectorAll('.case-notes').forEach(container => {
+  const tabs = container.querySelectorAll('.case-tab');
+  const notes = container.querySelectorAll('.case-note');
+  const segs = container.querySelectorAll('.case-progress-seg');
+  let index = 0;
+  let timer = null;
+  let isPaused = false;
+
+  function updateSegs() {
+    segs.forEach((seg, si) => {
+      seg.classList.remove('active', 'filled', 'paused');
+      if (si < index) seg.classList.add('filled');
+      else if (si === index) { seg.classList.add('active'); if (isPaused) seg.classList.add('paused'); }
+    });
+  }
+
+  function goTo(i) {
+    index = i;
+    tabs.forEach((t, ti) => t.classList.toggle('active', ti === i));
+    notes.forEach((n, ni) => n.classList.toggle('active', ni === i));
+    updateSegs();
+  }
+  function next() { goTo((index + 1) % tabs.length); }
+  function start() { stop(); isPaused = false; updateSegs(); timer = setInterval(next, 4500); }
+  function stop() { if (timer) clearInterval(timer); isPaused = true; updateSegs(); }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => { goTo(i); start(); });
+  });
+  container.addEventListener('mouseenter', stop);
+  container.addEventListener('mouseleave', start);
+  start();
+});
+// HERO: cursor-following spotlight
+const heroLeft = document.getElementById('heroLeft');
+const heroSpotlight = document.getElementById('heroSpotlight');
+if (heroLeft && heroSpotlight) {
+  heroLeft.addEventListener('mousemove', (e) => {
+    const rect = heroLeft.getBoundingClientRect();
+    heroSpotlight.style.left = (e.clientX - rect.left) + 'px';
+    heroSpotlight.style.top = (e.clientY - rect.top) + 'px';
+  });
+}
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 60); observer.unobserve(entry.target); } });
+}, { threshold: 0.06 });
+reveals.forEach(el => observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => { const target = document.querySelector(a.getAttribute('href')); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+});
+if (window.location.hash) { setTimeout(() => { const target = document.querySelector(window.location.hash); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 400); }
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const prefix = el.dataset.prefix || ''; const suffix = el.dataset.suffix || '';
+  if (!target) return;
+  let start = 0; const duration = 1400;
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = prefix + Math.floor(eased * target).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const resultsGrid = document.querySelector('.results-grid');
+if (resultsGrid) {
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { resultsGrid.querySelectorAll('.result-val[data-target]').forEach(animateCounter); countObserver.unobserve(entry.target); } });
+  }, { threshold: 0.3 });
+  countObserver.observe(resultsGrid);
+}
+const impactShift = document.getElementById('impactShift');
+if (impactShift) {
+  const shiftObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { impactShift.classList.add('visible'); shiftObserver.unobserve(entry.target); } });
+  }, { threshold: 0.4 });
+  shiftObserver.observe(impactShift);
+}
+</script>
+</body>
+</html>

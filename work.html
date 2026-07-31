@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Kulsum Mohammed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Hurricane&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #FAF8F4;
+  --ink: #1A1008;
+  --ink-light: #6B5B4B;
+  --border: rgba(26,16,8,0.1);
+  --burgundy: #6B1230;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--cream); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Hurricane', cursive; font-size: 28px; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+
+/* HEADER */
+.page-header { padding: 140px 48px 72px; }
+.header-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--burgundy); margin-bottom: 16px; }
+.header-title { font-family: 'Playfair Display', serif; font-size: clamp(56px, 7vw, 96px); font-weight: 900; color: var(--ink); letter-spacing: -3px; line-height: 0.95; margin-bottom: 24px; }
+.header-sub { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: var(--ink-light); line-height: 1.6; }
+
+/* GALLERY — editorial grid rows */
+.gallery { width: 100%; }
+
+.gallery-row {
+  display: flex;
+  width: 100%;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: flex-basis 0.35s ease;
+}
+
+.h-sm  { height: 220px; }
+.h-md  { height: 300px; }
+.h-lg  { height: 380px; }
+.h-xl  { height: 460px; }
+.h-2xl { height: 540px; }
+
+.item-fill {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s ease;
+}
+.gallery-item:hover .item-fill { transform: scale(1.04); }
+
+.t-b1 .item-fill { background: #2C1520; }
+.t-b2 .item-fill { background: #3A1A28; }
+.t-b3 .item-fill { background: #221018; }
+.t-p1 .item-fill { background: #1E1530; }
+.t-p2 .item-fill { background: #271A3A; }
+.t-p3 .item-fill { background: #180F28; }
+.t-c1 .item-fill { background: #2E1A18; }
+.t-c2 .item-fill { background: #3A2020; }
+.t-c3 .item-fill { background: #241515; }
+.t-g1 .item-fill { background: #1A1E10; }
+.t-g2 .item-fill { background: #22261A; }
+.t-n1 .item-fill { background: #18181C; }
+.t-n2 .item-fill { background: #201E24; }
+.t-w1 .item-fill { background: #1A1508; }
+.t-w2 .item-fill { background: #221C0E; }
+
+.item-fill::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.gallery-item {
+  transition: transform 0.15s ease-out, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.gallery-item:hover {
+  box-shadow: 0 30px 60px rgba(10,6,4,0.35), 0 10px 24px rgba(10,6,4,0.2);
+  z-index: 5;
+}
+.gallery-item.reveal-item { opacity: 0; transform: scale(0.92) translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.gallery-item.reveal-item.visible { opacity: 1; transform: scale(1) translateY(0); }
+
+.gallery-item + .gallery-item { border-left: 1px solid rgba(250,248,244,0.04); }
+.gallery-row + .gallery-row { border-top: 1px solid rgba(250,248,244,0.04); }
+
+.lightbox { position: fixed; inset: 0; z-index: 500; background: rgba(10,6,4,0.97); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lb-inner { position: relative; max-width: 90vw; max-height: 85vh; display: flex; flex-direction: column; align-items: center; }
+.lb-img { display: flex; align-items: center; justify-content: center; max-width: 100%; max-height: 80vh; border-radius: 2px; position: relative; }
+.lb-img img { max-width: 100%; max-height: 80vh; width: auto; height: auto; object-fit: contain; display: block; border-radius: 2px; }
+.lb-img .item-fill { position: relative; width: 700px; max-width: 100%; aspect-ratio: 4/3; }
+.lb-close { position: absolute; top: -44px; right: 0; width: 32px; height: 32px; background: rgba(250,248,244,0.08); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.lb-close svg { width: 12px; height: 12px; stroke: var(--cream); fill: none; stroke-width: 2; stroke-linecap: round; }
+.lb-nav { position: absolute; top: calc(50% - 20px); width: 36px; height: 36px; background: rgba(250,248,244,0.08); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.lb-nav:hover { background: rgba(250,248,244,0.15); }
+.lb-nav svg { width: 14px; height: 14px; stroke: var(--cream); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lb-prev { left: -52px; }
+.lb-next { right: -52px; }
+
+footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--cream); }
+.footer-logo { font-family: 'Hurricane', cursive; font-size: 26px; color: var(--ink); text-decoration: none; }
+.footer-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--ink-light); opacity: 0.5; }
+.footer-back { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.footer-back:hover { color: var(--ink); }
+
+.hidden { display: none !important; }
+
+/* DEVICE NOTICE — desktop and laptop only. Tablets and phones see this instead. */
+.device-notice { display: none; }
+
+@media (max-width: 1024px) {
+  body > *:not(.device-notice) { display: none !important; }
+  body { overflow: hidden; height: 100vh; }
+
+  .device-notice {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .device-notice::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='dn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23dn)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .device-notice-nav {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative; z-index: 1;
+  }
+  .device-notice-logo {
+    font-family: 'Hurricane', cursive;
+    font-size: 26px;
+    color: var(--ink);
+  }
+
+  .device-notice-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 32px;
+    position: relative; z-index: 1;
+  }
+
+  .device-notice-icon {
+    width: 72px; height: 72px;
+    margin-bottom: 36px;
+  }
+  .device-notice-icon svg {
+    width: 100%; height: 100%;
+    stroke: #6B1230;
+    fill: none;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .device-notice-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #6B1230;
+    opacity: 0.75;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .device-notice-eyebrow::before,
+  .device-notice-eyebrow::after {
+    content: '';
+    width: 24px; height: 1px;
+    background: #6B1230;
+    opacity: 0.4;
+  }
+
+  .device-notice-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.28;
+    max-width: 320px;
+    margin-bottom: 8px;
+  }
+  .device-notice-title em {
+    font-style: italic;
+    color: #6B1230;
+  }
+
+  .device-notice-rule {
+    width: 40px; height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .device-notice-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.75;
+    max-width: 300px;
+    margin-bottom: 36px;
+  }
+
+  .device-notice-sig {
+    font-family: 'Hurricane', cursive;
+    font-size: 30px;
+    color: #6B1230;
+    opacity: 0.65;
+  }
+
+  .device-notice-footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .device-notice-footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-light);
+    opacity: 0.4;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="device-notice">
+  <div class="device-notice-nav">
+    <span class="device-notice-logo">Kulsum Mohammed</span>
+  </div>
+  <div class="device-notice-body">
+    <div class="device-notice-icon">
+      <svg viewBox="0 0 64 64"><path d="M8 14a3 3 0 0 1 3-3h18v40H11a3 3 0 0 1-3-3V14Z"/><path d="M56 14a3 3 0 0 0-3-3H35v40h18a3 3 0 0 0 3-3V14Z"/><path d="M29 11v40"/><path d="M14 20h9M14 27h9M14 34h6M41 20h9M41 27h9M41 34h6"/></svg>
+    </div>
+    <p class="device-notice-eyebrow">A Note</p>
+    <h1 class="device-notice-title">This portfolio is best experienced<br>on <em>desktop.</em></h1>
+    <div class="device-notice-rule"></div>
+    <p class="device-notice-text">I'm currently crafting the mobile and tablet experience. For now, please view it on a laptop or desktop for the best experience.</p>
+    <p class="device-notice-sig">Kulsum</p>
+  </div>
+  <div class="device-notice-footer">
+    <p>See you on a bigger screen</p>
+  </div>
+</div>
+
+
+<nav>
+  <a href="index.html" class="nav-logo">Kulsum Mohammed</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="header-eyebrow">Visual Archive</p>
+  <h1 class="header-title">Work</h1>
+  <p class="header-sub">A visual archive of everything I've designed.</p>
+</div>
+
+<div class="gallery" id="gallery">
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-b1" style="flex-basis:40%" data-cat="Logos" data-proj="Tylt" data-title="Primary Wordmark" data-desc="A confident, geometric wordmark built to signal trust in an industry that rarely earns it."><img src="images/tl-product-notifications.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-p2" style="flex-basis:35%" data-cat="Branding" data-proj="TradingLeagues" data-title="Brand Identity System" data-desc="High-energy identity built digital-first — every element designed to work at scroll speed."><img src="images/cvs-grated-cheese.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-c1" style="flex-basis:25%" data-cat="Logos" data-proj="Creative Vision Studios" data-title="Logomark Refresh" data-desc="A refined mark that finally matched the quality of the studio's output."><img src="images/cvs-frankie-barlowe.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-md t-p1" style="flex-basis:25%" data-cat="Social" data-proj="Tylt" data-title="LinkedIn Template System" data-desc="A modular social system that keeps the brand consistent across every post format."><img src="images/tylt-brand-guidelines.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-w1" style="flex-basis:25%" data-cat="Product" data-proj="Tylt" data-title="Product Dashboard" data-desc="Complex payment data made simple. One view, everything the merchant needs."><img src="images/tylt-product-wallet.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-b2" style="flex-basis:25%" data-cat="Marketing" data-proj="TradingLeagues" data-title="Launch Campaign" data-desc="The campaign that drove 100K users. Three creatives, zero paid spend. Pure distribution."><img src="images/tylt-research-report.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-n1" style="flex-basis:25%" data-cat="Motion" data-proj="Tylt" data-title="Hero Animation" data-desc="An SVG payment network animation that explains global reach without a single word."><img src="images/tylt-mobile-view.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-2xl t-p3" style="flex-basis:55%" data-cat="Product" data-proj="TradingLeagues" data-title="App Dashboard UI" data-desc="Real-time data designed to feel exciting — not overwhelming. Dark mode first, always."><img src="images/basis-social-video.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-2xl t-b3" style="flex-basis:45%" data-cat="Branding" data-proj="Tylt" data-title="Brand Guidelines" data-desc="The complete system — colour, type, pattern, rules — documented for scale."><img src="images/tl-brand-colour-system.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-lg t-c2" style="flex-basis:28%" data-cat="Print" data-proj="Creative Vision Studios" data-title="Brand Poster" data-desc="A single poster that captured the studio's entire aesthetic in one frame."><img src="images/cvs-coverpops-giftwrap.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-g1" style="flex-basis:22%" data-cat="Motion" data-proj="TradingLeagues" data-title="Animated Logo" data-desc="A spring-loaded mark that enters fast — matching the energy of the product it lives in."><img src="images/cvs-the-jungle.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-b1" style="flex-basis:28%" data-cat="Social" data-proj="TradingLeagues" data-title="Instagram Reel Template" data-desc="Templatised Reels — so the team could publish daily without opening Figma."><img src="images/cvs-coverpops-social.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-p2" style="flex-basis:22%" data-cat="Logos" data-proj="Freelance" data-title="Minimal Wordmark" data-desc="A founder who wanted timeless, not trendy. Still the logo three years later."><img src="images/cvs-coverpops-brandguide.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-md t-c3" style="flex-basis:25%" data-cat="Logos" data-proj="Freelance" data-title="Café Brand Mark" data-desc="A playful bubble wordmark built to feel like a neighbourhood favourite from day one."><img src="images/freelance-muggd-logo.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-b2" style="flex-basis:25%" data-cat="Print" data-proj="Freelance" data-title="Jewellery Packaging" data-desc="Unboxing designed to feel as considered as the piece inside it."><img src="images/freelance-stellajames-packaging.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-p1" style="flex-basis:25%" data-cat="Print" data-proj="Freelance" data-title="Tube Packaging System" data-desc="A three-size tube system that kept the pattern language consistent at every scale."><img src="images/freelance-coverpops-tubes.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-n2" style="flex-basis:25%" data-cat="Marketing" data-proj="Tylt" data-title="Promo Banner" data-desc="A high-contrast deposit promo built to stop the scroll in a crowded feed."><img src="images/tylt-deposit-bonus-banner.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-lg t-n2" style="flex-basis:100%" data-cat="Marketing" data-proj="Tylt" data-title="Website Hero Section" data-desc="Above the fold — the one section that has to earn the scroll. Clarity over cleverness."><img src="images/basis-campaign-creative.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-c3" style="flex-basis:33%" data-cat="Branding" data-proj="Creative Vision Studios" data-title="Colour & Type System" data-desc="The visual language of a studio that wanted elevated and accessible at the same time."><img src="images/cvs-stella-james.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-w2" style="flex-basis:34%" data-cat="Product" data-proj="Tylt" data-title="Onboarding Flow" data-desc="A four-step onboarding that reduced drop-off from 62% to 28% in the first month."><img src="images/tylt-linkedin-post.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-g2" style="flex-basis:33%" data-cat="Motion" data-proj="Freelance" data-title="Logo Animation" data-desc="A brand reveal sequence built to feel like the opening of something worth paying attention to."><img src="images/tl-deck-growth-flywheel.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-md t-b2" style="flex-basis:20%" data-cat="Social" data-proj="Tylt" data-title="Twitter Thread Visual" data-desc="A designed thread asset — the visual equivalent of a strong opening sentence."><img src="images/tl-deck-ecosystem.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-p1" style="flex-basis:35%" data-cat="Print" data-proj="Freelance" data-title="Packaging Design" data-desc="Typography-led packaging with minimal print cost and maximum shelf presence."><img src="images/tl-brand-league-screens.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-c1" style="flex-basis:25%" data-cat="Marketing" data-proj="TradingLeagues" data-title="Referral Campaign" data-desc="The mechanic that made users recruits. Referral rate hit 34% week one."><img src="images/tylt-video-frames.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-n1" style="flex-basis:20%" data-cat="Logos" data-proj="Freelance" data-title="Icon Mark" data-desc="A geometric mark that holds at 16px and owns a room at 160px."><img src="images/tl-growth-badges.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-2xl t-p2" style="flex-basis:45%" data-cat="Motion" data-proj="TradingLeagues" data-title="Brand Film" data-desc="60 seconds. Two shoot days. The film that became the primary top-of-funnel asset."><img src="images/basis-ab-test-variant.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-2xl t-w1" style="flex-basis:55%" data-cat="Product" data-proj="TradingLeagues" data-title="Mobile UI System" data-desc="A full component library for a product where every millisecond of load time mattered."><img src="images/tl-product-win-cards.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-lg t-b1" style="flex-basis:30%" data-cat="Print" data-proj="TradingLeagues" data-title="Event Poster" data-desc="A tournament poster designed to feel like a sports event, not a crypto app."><img src="images/tylt-storyboard.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-c2" style="flex-basis:40%" data-cat="Branding" data-proj="Freelance" data-title="Startup Brand System" data-desc="A complete identity for a pre-seed startup that needed to look funded before they were."><img src="images/basis-paid-social-ad.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-g2" style="flex-basis:30%" data-cat="Social" data-proj="Freelance" data-title="Social Content Kit" data-desc="A 30-piece content kit that let a solo founder show up on LinkedIn every day for a month."><img src="images/tylt-component-closeup.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-n1" style="flex-basis:42%" data-cat="Print" data-proj="Freelance" data-title="Pet Brand Packaging" data-desc="Illustration-forward packaging built to make a shelf feel like a playground."><img src="images/freelance-pawsandpads-packaging.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-c2" style="flex-basis:58%" data-cat="Branding" data-proj="Freelance" data-title="Cosmetics Pattern System" data-desc="A hand-drawn pattern language built to carry a beauty brand across every surface."><img src="images/freelance-blossom-pattern.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-sm t-n2" style="flex-basis:22%" data-cat="Marketing" data-proj="Tylt" data-title="Email Campaign" data-desc="An outbound sequence with a 38% open rate. Subject line was everything."><img src="images/tylt-logo-variations.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-sm t-p3" style="flex-basis:28%" data-cat="Product" data-proj="Freelance" data-title="Landing Page UI" data-desc="A single-page site designed to convert a cold visitor into a booked call."><img src="images/tl-product-championships.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-sm t-b3" style="flex-basis:28%" data-cat="Logos" data-proj="Tylt" data-title="Symbol Mark" data-desc="The standalone mark — works alone when the wordmark won't fit."><img src="images/tylt-primary-wordmark.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-sm t-c3" style="flex-basis:22%" data-cat="Print" data-proj="Freelance" data-title="Business Card" data-desc="The physical touchpoint. Matte black, one colour, heavy stock. Keeps."><img src="images/tylt-product-qr-filter.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-p1" style="flex-basis:100%" data-cat="Branding" data-proj="TradingLeagues" data-title="Full Brand Guidelines Spread" data-desc="The document every new designer and agency gets on day one. Every rule, every exception, every usage case."><img src="images/basis-video-still.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-w2" style="flex-basis:38%" data-cat="Motion" data-proj="Tylt" data-title="Lottie UI Animations" data-desc="Microinteractions that make the product feel alive — load states, success moments, empty states."><img src="images/basis-animated-asset.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-b2" style="flex-basis:32%" data-cat="Social" data-proj="TradingLeagues" data-title="Story Templates" data-desc="A 12-part Stories system built so the marketing team never needed to brief a designer again."><img src="images/tl-deck-prediction-markets.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-g1" style="flex-basis:30%" data-cat="Marketing" data-proj="Freelance" data-title="Product Hunt Launch Kit" data-desc="The full visual kit for a Product Hunt launch — banner, thumbnail, assets, social."><img src="images/tl-growth-ad-creative.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-md t-c1" style="flex-basis:25%" data-cat="Branding" data-proj="Freelance" data-title="Pattern System" data-desc="A graphic pattern library built for a brand that needed to own surfaces, not just screens."><img src="images/tl-brand-subleague-screens.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-n1" style="flex-basis:30%" data-cat="Product" data-proj="Tylt" data-title="Settings Screen" data-desc="The screen nobody designs well. Dense, functional, and still on-brand."><img src="images/tl-growth-onboarding.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-p3" style="flex-basis:25%" data-cat="Logos" data-proj="Freelance" data-title="Monogram Mark" data-desc="A two-letter mark with enough personality to anchor an entire identity system."><img src="images/cvs-order-box.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-b3" style="flex-basis:20%" data-cat="Print" data-proj="TradingLeagues" data-title="Merch Design" data-desc="Branded merch that people actually want to wear. The hoodie sold out in 48 hours."><img src="images/cvs-mill-habs.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-2xl t-g2" style="flex-basis:60%" data-cat="Marketing" data-proj="TradingLeagues" data-title="Community Growth Visuals" data-desc="The creative system that powered a Discord community from 0 to 12,000 members."><img src="images/tylt-carousel-system.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-2xl t-w1" style="flex-basis:40%" data-cat="Branding" data-proj="Tylt" data-title="Typography System" data-desc="A type system built to communicate authority without feeling cold. Precision with personality."><img src="images/cvs-paws-pads.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-lg t-p2" style="flex-basis:35%" data-cat="Social" data-proj="Tylt" data-title="Carousel Post System" data-desc="A 10-slide carousel format that consistently outperformed every other post type."><img src="images/cvs-niaya-rose.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-c2" style="flex-basis:35%" data-cat="Motion" data-proj="Freelance" data-title="Transition Pack" data-desc="A Premiere Pro transition pack built for a creator with 400K subscribers who needed to move faster."><img src="images/cvs-handmade-nailbar.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-n2" style="flex-basis:30%" data-cat="Product" data-proj="TradingLeagues" data-title="Leaderboard Screen" data-desc="Designed to create envy, urgency and status in three seconds flat."><img src="images/cvs-devils-dozen.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-b1" style="flex-basis:100%" data-cat="Print" data-proj="Freelance" data-title="Bra Accessories Business Cards" data-desc="A card system with a pattern language bold enough to be remembered after the pitch was over."><img src="images/freelance-coverpops-cards.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-md t-b1" style="flex-basis:25%" data-cat="Print" data-proj="Freelance" data-title="Stationery System" data-desc="Letterhead, envelope, card. The kind of stationery that makes people check if a company is publicly listed."><img src="images/cvs-organic-skincare.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-g1" style="flex-basis:30%" data-cat="Marketing" data-proj="Freelance" data-title="Pitch Deck" data-desc="A 14-slide investor deck that closed a pre-seed round. Design as signal."><img src="images/tylt-product-dashboard.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-p1" style="flex-basis:25%" data-cat="Social" data-proj="Freelance" data-title="Pinterest Board Design" data-desc="Branded Pinterest content that drove 40% of a DTC brand's referral traffic."><img src="images/tl-deck-metrics-market.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-md t-c3" style="flex-basis:20%" data-cat="Logos" data-proj="Creative Vision Studios" data-title="Sub-brand Mark" data-desc="A secondary mark that lives inside the parent brand without competing with it."><img src="images/tl-growth-global-campaign.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-2xl t-b2" style="flex-basis:100%" data-cat="Motion" data-proj="TradingLeagues" data-title="Motion Reel" data-desc="A 90-second showreel of all motion work from the TradingLeagues identity — from logo to in-app to social."><img src="images/tylt-website-hero.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-lg t-w1" style="flex-basis:40%" data-cat="Product" data-proj="Tylt" data-title="Empty State Design" data-desc="The screen nobody lands on twice — if it's designed right. Helpful without being annoying."><img src="images/tylt-video-thumbnail.jpg" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-n1" style="flex-basis:30%" data-cat="Branding" data-proj="Freelance" data-title="Brand Rollout Kit" data-desc="Everything a founding team needs to launch consistently across every touchpoint on day one."><img src="images/freelance-indigo-wordmark.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-p3" style="flex-basis:30%" data-cat="Marketing" data-proj="TradingLeagues" data-title="Influencer Brief Kit" data-desc="A 6-page brief that turned influencer posts from generic to unmistakably on-brand."><img src="images/tradingleagues-mobile-app-screen.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-xl t-c1" style="flex-basis:50%" data-cat="Social" data-proj="Tylt" data-title="Announcement Graphics" data-desc="A visual system for product updates — designed to feel like news, not a changelog."><img src="images/basis-newsletter-banner.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-xl t-g2" style="flex-basis:50%" data-cat="Print" data-proj="Tylt" data-title="Conference Materials" data-desc="Pull-up banners, lanyards, handouts. The physical presence that made Tylt unmissable at Fintech Summit."><img src="images/tradingleagues-badges.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+  <div class="gallery-row">
+    <div class="gallery-item h-lg t-b1" style="flex-basis:22%" data-cat="Logos" data-proj="Freelance" data-title="Wordmark Suite" data-desc="Primary, secondary and stacked — the same brand in every configuration it'll ever need."><img src="images/freelance-circular-logomark.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-p2" style="flex-basis:28%" data-cat="Motion" data-proj="Freelance" data-title="Intro Sequence" data-desc="A 3-second brand intro built for a YouTube channel that wanted to own its first impression."><img src="images/freelance-podcast-pattern.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-c3" style="flex-basis:28%" data-cat="Branding" data-proj="Creative Vision Studios" data-title="Brand Collateral" data-desc="Folders, notebooks, pens. The tactile details that turned a studio pitch into a studio win."><img src="images/freelance-toptips-cards.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+    <div class="gallery-item h-lg t-n2" style="flex-basis:22%" data-cat="Product" data-proj="Freelance" data-title="Error State Design" data-desc="Nobody plans for errors. This one felt like a feature."><img src="images/freelance-tote-bag.png" alt="" class="item-fill" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/></div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Kulsum Mohammed</a>
+  <p class="footer-copy">© 2025 Kulsum Mohammed</p>
+  <a href="index.html" class="footer-back">← Home</a>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <button class="lb-nav lb-prev" id="lbPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button class="lb-nav lb-next" id="lbNext"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <div class="lb-img" id="lbImg"></div>
+  </div>
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+// Click anywhere on an image to open the lightbox
+galleryItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    const visibleItems = [...galleryItems];
+    openLb(visibleItems.indexOf(item));
+  });
+});
+
+const lbImg = document.getElementById('lbImg');
+let currentIdx = 0;
+let visibleItems = [];
+
+function openLb(idx) {
+  visibleItems = [...galleryItems];
+  currentIdx = idx;
+  showLb();
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLb() {
+  const item = visibleItems[currentIdx];
+  if (!item) return;
+  lbImg.className = 'lb-img';
+  lbImg.innerHTML = '';
+  const realImg = item.querySelector('img.item-fill');
+  if (realImg) {
+    const clone = document.createElement('img');
+    clone.src = realImg.src;
+    clone.alt = realImg.alt || '';
+    clone.style.cssText = 'max-width:100%;max-height:80vh;width:auto;height:auto;object-fit:contain;display:block;';
+    lbImg.appendChild(clone);
+  } else {
+    const tint = [...item.classList].find(c => c.startsWith('t-'));
+    if (tint) {
+      const fill = document.createElement('div');
+      fill.className = 'item-fill ' + tint;
+      lbImg.appendChild(fill);
+    }
+  }
+}
+
+function closeLb() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lbClose').addEventListener('click', closeLb);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+document.getElementById('lbPrev').addEventListener('click', () => { currentIdx = (currentIdx - 1 + visibleItems.length) % visibleItems.length; showLb(); });
+document.getElementById('lbNext').addEventListener('click', () => { currentIdx = (currentIdx + 1) % visibleItems.length; showLb(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + visibleItems.length) % visibleItems.length; showLb(); }
+  if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % visibleItems.length; showLb(); }
+});
+
+// Scroll reveal: images stagger in as they enter view
+galleryItems.forEach(el => el.classList.add('reveal-item'));
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      setTimeout(() => {
+        el.classList.add('visible');
+        el.addEventListener('transitionend', function cleanup() {
+          el.classList.remove('reveal-item', 'visible');
+          el.removeEventListener('transitionend', cleanup);
+        }, { once: true });
+      }, i * 45);
+      revealObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+galleryItems.forEach(el => revealObserver.observe(el));
+
+// Cursor tilt: each image tilts slightly based on mouse position
+galleryItems.forEach(item => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    item.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale3d(1.02, 1.02, 1.02)`;
+  });
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = '';
+  });
+});
+</script>
+</body>
+</html>

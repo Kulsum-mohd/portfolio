@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Kulsum Mohammed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Hurricane&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --cream: #FAF8F4; --ink: #1A1008; --ink-light: #6B5B4B; --border: rgba(26,16,8,0.1); --burgundy: #6B1230; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; animation: page-in 0.4s ease forwards; }
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--cream); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Hurricane', cursive; font-size: 28px; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+.hero { padding: 160px 48px 100px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+.hero-issue { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--burgundy); opacity: 0.7; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+.hero-issue::before { content: ''; width: 32px; height: 1px; background: var(--burgundy); opacity: 0.4; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(52px, 7vw, 96px); font-weight: 900; color: var(--ink); letter-spacing: -3px; line-height: 0.98; margin-bottom: 40px; }
+.hero-title em { font-style: italic; color: var(--burgundy); }
+.hero-sub { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 300; color: var(--ink-light); line-height: 1.8; max-width: 400px; }
+.hero-right { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 8px; }
+.hero-note-label { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; font-style: italic; color: var(--burgundy); margin-bottom: 20px; }
+.hero-note { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2vw, 22px); font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.6; letter-spacing: -0.2px; }
+.hero-sig { margin-top: 24px; font-family: 'Hurricane', cursive; font-size: 32px; color: var(--burgundy); opacity: 0.6; }
+.contact-form-section { padding: 100px 48px; border-bottom: 1px solid var(--border); background: var(--ink); }
+.form-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.form-eyebrow { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.3); margin-bottom: 20px; }
+.form-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--cream); letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 24px; }
+.form-headline em { font-style: italic; color: rgba(250,248,244,0.4); }
+.form-sub { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(250,248,244,0.45); line-height: 1.75; }
+.form-grid { display: flex; flex-direction: column; gap: 0; }
+.form-field { border-bottom: 1px solid rgba(250,248,244,0.08); padding: 20px 0; }
+.form-field:first-child { border-top: 1px solid rgba(250,248,244,0.08); }
+.form-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(250,248,244,0.35); display: block; margin-bottom: 10px; }
+.form-input, .form-select, .form-textarea { width: 100%; background: transparent; border: none; outline: none; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; color: var(--cream); letter-spacing: -0.2px; line-height: 1.4; resize: none; appearance: none; -webkit-appearance: none; }
+.form-input::placeholder, .form-textarea::placeholder { color: rgba(250,248,244,0.2); font-style: italic; }
+.form-select { cursor: pointer; }
+.form-select option { background: var(--ink); color: var(--cream); }
+.form-textarea { min-height: 120px; padding-top: 4px; }
+.form-submit { margin-top: 40px; align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); background: var(--cream); border: none; padding: 16px 32px; border-radius: 2px; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+.form-submit:hover { background: rgba(250,248,244,0.88); transform: translateY(-2px); }
+.form-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+.form-status { margin-top: 16px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: rgba(250,248,244,0.5); min-height: 16px; }
+.form-status.error { color: #E8837A; }
+.availability { padding: 100px 48px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 280px 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; width: 100%; }
+.avail-label-col { padding-top: 4px; }
+.avail-label-text { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; font-style: italic; color: var(--burgundy); display: flex; align-items: center; }
+.avail-status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--burgundy); margin-left: 10px; position: relative; }
+.avail-status-dot::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 1px solid var(--burgundy); opacity: 0.5; animation: avail-pulse 2.2s ease-out infinite; }
+@keyframes avail-pulse { 0% { transform: scale(0.5); opacity: 0.6; } 100% { transform: scale(2.4); opacity: 0; } }
+.avail-label-rule { width: 1px; height: 60px; background: var(--burgundy); opacity: 0.2; margin-top: 16px; transform: scaleY(0); transform-origin: top; transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); }
+.avail-label-rule.line-visible { transform: scaleY(1); }
+.avail-headline { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.8vw, 36px); font-weight: 900; color: var(--ink); letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 40px; }
+.avail-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; }
+.avail-item { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: var(--ink-light); opacity: 0; transform: translateX(-16px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease, padding-left 0.25s ease, color 0.25s ease; }
+.avail-item.visible { opacity: 1; transform: translateX(0); }
+.avail-item:first-child { border-top: 1px solid var(--border); }
+.avail-item:hover { background: rgba(107,18,48,0.045); padding-left: 12px; color: var(--ink); }
+.avail-check { width: 18px; height: 18px; border: 1px solid var(--burgundy); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease; }
+.avail-item:hover .avail-check { transform: scale(1.15) rotate(-8deg); background: rgba(107,18,48,0.08); }
+.avail-check svg { width: 10px; height: 10px; stroke: var(--burgundy); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.avail-check svg polyline { stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset 0.5s ease; }
+.avail-item.visible .avail-check svg polyline { stroke-dashoffset: 0; }
+.avail-note { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 300; color: var(--ink-light); opacity: 0.5; font-style: italic; }
+.editorial-footer { padding: 80px 48px 60px; background: var(--ink); }
+.editorial-footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+.sig-rule { width: 100%; height: 1px; background: rgba(250,248,244,0.08); margin-bottom: 40px; }
+.sig-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.25); margin-bottom: 20px; }
+.sig-name { font-family: 'Hurricane', cursive; font-size: 52px; color: var(--cream); line-height: 1; margin-bottom: 12px; }
+.sig-location { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: rgba(250,248,244,0.3); letter-spacing: 0.5px; margin-bottom: 20px; }
+.sig-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.sig-links a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: rgba(250,248,244,0.45); text-decoration: none; letter-spacing: 0.3px; transition: color 0.2s; }
+.sig-links a:hover { color: var(--cream); }
+.sig-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+.sig-closing { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2vw, 24px); font-weight: 400; font-style: italic; color: rgba(250,248,244,0.35); line-height: 1.5; max-width: 320px; text-align: right; }
+.sig-chapter { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,248,244,0.15); }
+.sig-copyright { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; color: rgba(250,248,244,0.2); letter-spacing: 0.5px; }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* DEVICE NOTICE — desktop and laptop only. Tablets and phones see this instead. */
+.device-notice { display: none; }
+
+@media (max-width: 1024px) {
+  body > *:not(.device-notice) { display: none !important; }
+  body { overflow: hidden; height: 100vh; }
+
+  .device-notice {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .device-notice::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='dn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23dn)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .device-notice-nav {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative; z-index: 1;
+  }
+  .device-notice-logo {
+    font-family: 'Hurricane', cursive;
+    font-size: 26px;
+    color: var(--ink);
+  }
+
+  .device-notice-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 32px;
+    position: relative; z-index: 1;
+  }
+
+  .device-notice-icon {
+    width: 72px; height: 72px;
+    margin-bottom: 36px;
+  }
+  .device-notice-icon svg {
+    width: 100%; height: 100%;
+    stroke: #6B1230;
+    fill: none;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .device-notice-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #6B1230;
+    opacity: 0.75;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .device-notice-eyebrow::before,
+  .device-notice-eyebrow::after {
+    content: '';
+    width: 24px; height: 1px;
+    background: #6B1230;
+    opacity: 0.4;
+  }
+
+  .device-notice-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.28;
+    max-width: 320px;
+    margin-bottom: 8px;
+  }
+  .device-notice-title em {
+    font-style: italic;
+    color: #6B1230;
+  }
+
+  .device-notice-rule {
+    width: 40px; height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .device-notice-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.75;
+    max-width: 300px;
+    margin-bottom: 36px;
+  }
+
+  .device-notice-sig {
+    font-family: 'Hurricane', cursive;
+    font-size: 30px;
+    color: #6B1230;
+    opacity: 0.65;
+  }
+
+  .device-notice-footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .device-notice-footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-light);
+    opacity: 0.4;
+  }
+}
+
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<div class="device-notice">
+  <div class="device-notice-nav">
+    <span class="device-notice-logo">Kulsum Mohammed</span>
+  </div>
+  <div class="device-notice-body">
+    <div class="device-notice-icon">
+      <svg viewBox="0 0 64 64"><path d="M8 14a3 3 0 0 1 3-3h18v40H11a3 3 0 0 1-3-3V14Z"/><path d="M56 14a3 3 0 0 0-3-3H35v40h18a3 3 0 0 0 3-3V14Z"/><path d="M29 11v40"/><path d="M14 20h9M14 27h9M14 34h6M41 20h9M41 27h9M41 34h6"/></svg>
+    </div>
+    <p class="device-notice-eyebrow">A Note</p>
+    <h1 class="device-notice-title">This portfolio is best experienced<br>on <em>desktop.</em></h1>
+    <div class="device-notice-rule"></div>
+    <p class="device-notice-text">I'm currently crafting the mobile and tablet experience. For now, please view it on a laptop or desktop for the best experience.</p>
+    <p class="device-notice-sig">Kulsum</p>
+  </div>
+  <div class="device-notice-footer">
+    <p>See you on a bigger screen</p>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Kulsum Mohammed</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero reveal">
+  <div class="hero-left">
+    <p class="hero-issue">The Last Page</p>
+    <h1 class="hero-title">Let's build<br>something worth<br><em>remembering.</em></h1>
+    <p class="hero-sub">Whether you're hiring, building a product, rethinking a brand, or trying to make something clearer, I'd love to hear what you're working on.</p>
+  </div>
+  <div class="hero-right">
+    <p class="hero-note-label">Before we begin</p>
+    <p class="hero-note">Most conversations start messy: a half finished product, a rough idea, or just a feeling that something isn't working yet. That's exactly where I like to jump in. Bring the mess, we'll figure out the rest.</p>
+    <p class="hero-sig">Kulsum</p>
+  </div>
+</section>
+<section class="contact-form-section reveal">
+  <div class="form-inner">
+    <div class="form-left">
+      <p class="form-eyebrow">Start the conversation</p>
+      <h2 class="form-headline">Tell me about<br><em>your project.</em></h2>
+      <p class="form-sub">You don't need all the answers. A little context is enough to start the conversation.</p>
+    </div>
+    <div class="form-right">
+      <form class="form-grid" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-field">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" name="from_name" placeholder="What should I call you?" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" name="from_email" placeholder="Where should I reply?" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Company (Optional)</label>
+          <input class="form-input" type="text" name="company" placeholder="Who are you building for?" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">What Brings You Here?</label>
+          <select class="form-select form-input" name="inquiry_type" required>
+            <option value="" disabled selected style="color:rgba(250,248,244,0.2)">Select one</option>
+            <option value="freelance">Freelance Project</option>
+            <option value="fulltime">Full Time Opportunity</option>
+            <option value="contract">Contract Role</option>
+            <option value="collab">Collaboration</option>
+            <option value="speaking">Speaking Opportunity</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Project Timeline (Optional)</label>
+          <input class="form-input" type="text" name="timeline" placeholder="When are you hoping to start?" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Tell me about your idea</label>
+          <textarea class="form-textarea" name="message" placeholder="The more you share, the better I can respond..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Start the Conversation →</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+<section class="availability reveal">
+  <div class="avail-label-col">
+    <p class="avail-label-text">Availability<span class="avail-status-dot"></span></p>
+    <div class="avail-label-rule"></div>
+  </div>
+  <div class="avail-content">
+    <h2 class="avail-headline">Available for</h2>
+    <div class="avail-list">
+      <div class="avail-item"><div class="avail-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>Full Time Opportunities</div>
+      <div class="avail-item"><div class="avail-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>Product and Brand Consulting</div>
+      <div class="avail-item"><div class="avail-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>Early Stage Startups</div>
+      <div class="avail-item"><div class="avail-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>Website Design and Framer Builds</div>
+      <div class="avail-item"><div class="avail-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>Marketing and GTM Strategy</div>
+    </div>
+    <p class="avail-note">Usually replying within one or two business days.</p>
+  </div>
+</section>
+<footer class="editorial-footer">
+  <div class="editorial-footer-inner">
+    <div class="sig-left">
+      <div class="sig-rule"></div>
+      <p class="sig-label">Designed and crafted by</p>
+      <p class="sig-name">Kulsum Mohammed</p>
+      <p class="sig-location">Bengaluru, India &nbsp;·&nbsp; © 2026</p>
+      <div class="sig-links">
+        <a href="mailto:kulsumlko@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/kulsum-m-b54b56a4/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/creativevision_studios/" target="_blank">Instagram</a>
+        <a href="https://twitter.com/kulsummohd26" target="_blank">Twitter</a>
+      </div>
+    </div>
+    <div class="sig-right">
+      <p class="sig-closing">Thanks for making it this far.<br>Now let's actually talk.</p>
+      <p class="sig-chapter">Talk Soon</p>
+      <p class="sig-copyright">Kulsum Mohammed Portfolio · All rights reserved</p>
+    </div>
+  </div>
+</footer>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => observer.observe(el));
+
+const availSection = document.querySelector('.availability');
+if (availSection) {
+  const availRule = availSection.querySelector('.avail-label-rule');
+  const availItems = availSection.querySelectorAll('.avail-item');
+  const availObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (availRule) availRule.classList.add('line-visible');
+        availItems.forEach((item, i) => { setTimeout(() => item.classList.add('visible'), 150 + i * 130); });
+        availObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  availObserver.observe(availSection);
+}
+
+// EmailJS setup
+(function() {
+  emailjs.init({ publicKey: "icTJcSXUYyYSreJ36" });
+})();
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.form-submit');
+  const status = document.getElementById('formStatus');
+  const originalText = 'Start the Conversation →';
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  status.textContent = '';
+  status.classList.remove('error');
+
+  emailjs.sendForm('service_portfolio', 'template_mx409ss', form)
+    .then(() => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'rgba(250,248,244,0.6)';
+      status.textContent = "Thanks, I'll get back to you within a day or two.";
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+        status.textContent = '';
+        form.reset();
+      }, 4000);
+    })
+    .catch((err) => {
+      console.error('EmailJS error:', err);
+      btn.textContent = originalText;
+      btn.disabled = false;
+      status.textContent = 'Something went wrong. Please try emailing me directly instead.';
+      status.classList.add('error');
+    });
+}
+</script>
+</body>
+</html>

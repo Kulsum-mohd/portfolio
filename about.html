@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Kulsum Mohammed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Hurricane&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream:     #FAF8F4;
+  --ink:       #1A1008;
+  --ink-light: #6B5B4B;
+  --border:    rgba(26,16,8,0.1);
+  --burgundy:  #6B1230;
+  --burgundy-light: #C4547A;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Inter', sans-serif; overflow-x: hidden; animation: page-in 0.4s ease forwards; }
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--cream); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Hurricane', cursive; font-size: 28px; color: var(--ink); text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 65px;
+}
+
+.hero-left {
+  padding: 80px 64px 80px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+
+.hero-issue {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--burgundy); margin-bottom: 48px;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-issue::before { content: ''; width: 32px; height: 1px; background: var(--burgundy); opacity: 0.4; }
+
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--ink-light); opacity: 0.4;
+  margin-bottom: 24px;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 56px;
+}
+.hero-headline em { font-style: italic; color: var(--burgundy); }
+
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-light); line-height: 1.8;
+  max-width: 340px;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.portrait-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 65px);
+  background: #D8D0C8;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  padding: 32px;
+}
+
+.portrait-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: grayscale(0.18) contrast(1.03) brightness(0.98) sepia(0.04) saturate(0.94);
+  z-index: 0;
+}
+
+.portrait-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.portrait-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,16,8,0.55) 0%, rgba(26,16,8,0.15) 35%, transparent 55%);
+  z-index: 2;
+}
+
+.portrait-label {
+  position: relative; z-index: 3;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(250,248,244,0.7);
+}
+
+/* ─── SECTION SHARED ─── */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--burgundy); opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── THE STORY ─── */
+.story {
+  padding: 120px 48px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.story-label-col { padding-top: 6px; }
+.story-label-text { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; font-style: italic; color: var(--burgundy); }
+.story-label-rule { width: 1px; height: 60px; background: var(--burgundy); opacity: 0.2; margin-top: 16px; }
+.story-issue-tag { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--burgundy); opacity: 0.6; margin-bottom: 28px; }
+.story-text { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2vw, 24px); font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.6; letter-spacing: -0.3px; }
+.story-text p { margin-bottom: 20px; }
+.story-text p:last-child { margin-bottom: 0; }
+
+.story-text p.story-drop::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 68px;
+  float: left;
+  line-height: 0.75;
+  margin: 8px 10px 0 -2px;
+  color: var(--burgundy);
+}
+
+.story-questions {
+  border-left: 2px solid var(--burgundy);
+  margin: 4px 0 24px;
+  padding: 2px 0 2px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.story-question {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 1.7vw, 20px);
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.82;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.story-annotated {
+  border-bottom: 1px dotted var(--burgundy);
+  cursor: help;
+  transition: color 0.2s ease;
+}
+.story-annotated:hover { color: var(--burgundy); }
+
+.story-note {
+  margin-top: 24px;
+  max-width: 180px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 400; font-style: italic;
+  color: var(--ink-light);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.story-note.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── THE NUMBERS ─── */
+.numbers {
+  padding: 100px 48px;
+  border-top: 1px solid var(--border);
+  background: var(--ink);
+}
+
+.numbers-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.number-item {
+  padding: 48px 40px;
+  border-right: 1px solid rgba(250,248,244,0.06);
+}
+.number-item:last-child { border-right: none; }
+
+.number-val {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 6vw, 80px);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: 12px;
+}
+
+.number-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 300;
+  color: rgba(250,248,244,0.45);
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.number-tags {
+  margin-top: 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.number-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(250,248,244,0.25);
+}
+
+/* ─── THE TIMELINE ─── */
+.timeline {
+  padding: 120px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.timeline-header { max-width: 1100px; margin: 0 auto 72px; }
+.timeline-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 900; color: var(--ink); letter-spacing: -1px; line-height: 1; }
+
+.timeline-items {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 48px;
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+  cursor: default;
+  transition: background 0.25s ease;
+  margin: 0 -48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+.timeline-item:hover { background: rgba(107,18,48,0.025); }
+.timeline-item:last-child { border-bottom: 1px solid var(--border); }
+
+.timeline-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px; font-weight: 900;
+  color: var(--ink); letter-spacing: -1px;
+  line-height: 1; padding-top: 4px;
+  white-space: nowrap;
+}
+.timeline-company {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 900;
+  color: var(--ink); letter-spacing: -0.5px;
+  line-height: 1; margin-bottom: 10px;
+}
+.timeline-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--burgundy); opacity: 0.7;
+  margin-bottom: 12px;
+}
+.timeline-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-light); line-height: 1.7;
+  max-width: 520px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.35s ease;
+}
+.timeline-item:hover .timeline-desc { max-height: 100px; opacity: 1; }
+
+.timeline-arrow {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; color: var(--burgundy); opacity: 0.2;
+  margin: 0 auto;
+  display: flex; justify-content: center;
+  padding: 12px 0;
+}
+.timeline-arrow:last-child { display: none; }
+
+/* ─── THE PHILOSOPHY ─── */
+.philosophy {
+  padding: 100px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.philosophy-header { max-width: 1100px; margin: 0 auto 56px; display: flex; align-items: flex-end; justify-content: space-between; }
+.philosophy-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 3.6vw, 46px); font-weight: 900; color: var(--ink); letter-spacing: -1px; }
+.philosophy-sub { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--ink-light); opacity: 0.5; max-width: 200px; text-align: right; line-height: 1.6; }
+
+.philosophy-carousel {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.philosophy-viewport {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.philosophy-track {
+  display: flex;
+  transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.philosophy-slide {
+  flex: 0 0 100%;
+  min-height: 260px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 64px;
+  background: #F8F3F0;
+  overflow: hidden;
+}
+
+.philosophy-slide::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.philosophy-slide-mark {
+  position: absolute;
+  right: -8px; bottom: -34px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(90px, 15vw, 230px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(26,16,8,0.09);
+  line-height: 1;
+  letter-spacing: -5px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.philosophy-slide-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; font-weight: 400; font-style: italic;
+  color: var(--burgundy); opacity: 0.55;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+
+.philosophy-slide-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: -0.4px;
+  line-height: 1.32;
+  max-width: 680px;
+  position: relative; z-index: 1;
+}
+
+.philosophy-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.philosophy-arrows { display: flex; gap: 12px; }
+.philosophy-arrow {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+.philosophy-arrow:hover { border-color: var(--burgundy); background: rgba(107,18,48,0.05); transform: translateY(-1px); }
+.philosophy-arrow svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.philosophy-dots { display: flex; align-items: center; gap: 18px; }
+.philosophy-dot {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--ink-light); opacity: 0.4;
+  background: none; border: none; cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.philosophy-dot.active {
+  opacity: 1;
+  color: var(--burgundy);
+  border-bottom-color: var(--burgundy);
+}
+
+@media (max-width: 700px) {
+  .philosophy-slide { padding: 40px 28px; }
+  .philosophy-slide-mark { font-size: 90px; right: 8px; bottom: -14px; letter-spacing: -2px; }
+}
+
+/* ─── THE MIND ─── */
+.mind {
+  padding: 120px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.mind-header { max-width: 1100px; margin: 0 auto 72px; }
+.mind-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 900; color: var(--ink); letter-spacing: -1px; }
+
+.mind-items {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.mind-items::before {
+  content: '';
+  position: absolute;
+  left: 23px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: var(--border);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.mind-items.line-visible::before { transform: scaleY(1); }
+
+.mind-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 32px 0;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.mind-item.visible { opacity: 1; transform: translateX(0); }
+
+.mind-icon {
+  width: 46px; height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, background 0.3s ease;
+}
+.mind-item:hover .mind-icon {
+  transform: rotate(-8deg) scale(1.1);
+  border-color: var(--burgundy);
+  background: rgba(107,18,48,0.06);
+}
+.mind-icon svg {
+  width: 18px; height: 18px;
+  stroke: var(--ink-light);
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+.mind-item:hover .mind-icon svg { stroke: var(--burgundy); }
+
+.mind-content { padding-top: 5px; }
+
+.mind-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--burgundy); opacity: 0.65;
+  margin-bottom: 10px;
+}
+
+.mind-question {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 1.9vw, 24px);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+  max-width: 620px;
+}
+.mind-item:hover .mind-question { transform: translateX(4px); }
+
+.mind-answer {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 300;
+  color: var(--ink-light); line-height: 1.6;
+  max-width: 520px;
+}
+
+/* ─── FUN FACTS ─── */
+.facts {
+  padding: 100px 48px;
+  border-top: 1px solid var(--border);
+  background: var(--ink);
+}
+
+.facts-inner { max-width: 1100px; margin: 0 auto; }
+
+.facts-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(250,248,244,0.3);
+  margin-bottom: 56px;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 56px;
+}
+
+.fact-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 26px 4px;
+  opacity: 0;
+  transform: translateY(22px) scale(0.94);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease;
+  border-radius: 4px;
+}
+.fact-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+.fact-card:hover { background: rgba(196, 84, 122, 0.06); }
+
+.fact-icon {
+  width: 46px; height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(250,248,244,0.14);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, background 0.3s ease;
+}
+.fact-card:hover .fact-icon {
+  transform: rotate(-8deg) scale(1.1);
+  border-color: var(--burgundy-light);
+  background: rgba(196, 84, 122, 0.12);
+}
+.fact-icon svg {
+  width: 19px; height: 19px;
+  stroke: rgba(250,248,244,0.5);
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+.fact-card:hover .fact-icon svg { stroke: var(--burgundy-light); }
+
+.fact-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 400; font-style: italic;
+  color: rgba(250,248,244,0.8);
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.fact-card:hover .fact-text { color: rgba(250,248,244,0.98); transform: translateX(4px); }
+
+@media (max-width: 800px) {
+  .facts-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── THE MANIFESTO ─── */
+.manifesto {
+  padding: 160px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.manifesto-inner { max-width: 1100px; margin: 0 auto; }
+
+.manifesto-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--burgundy); opacity: 0.6;
+  margin-bottom: 48px;
+}
+
+.manifesto-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -3px;
+  line-height: 1.05;
+}
+
+.manifesto-text em {
+  font-style: italic;
+  color: var(--burgundy);
+}
+
+.manifesto-list {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink-light); opacity: 0.55;
+  margin-top: 32px;
+}
+
+.manifesto-rule {
+  width: 64px; height: 1px;
+  background: var(--border);
+  margin: 48px 0;
+}
+
+.manifesto-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 400; font-style: italic;
+  color: var(--ink-light);
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+/* ─── THE NEXT CHAPTER ─── */
+.next-chapter {
+  padding: 120px 48px;
+  background: var(--burgundy);
+  position: relative;
+  overflow: hidden;
+}
+
+.next-chapter-deco {
+  position: absolute;
+  right: -20px; bottom: -40px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(120px, 16vw, 200px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(250,248,244,0.08);
+  line-height: 1; letter-spacing: -8px;
+  pointer-events: none; user-select: none;
+}
+
+.next-chapter-inner { max-width: 700px; position: relative; z-index: 1; }
+
+.next-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(250,248,244,0.4);
+  margin-bottom: 32px;
+}
+
+.next-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 900;
+  color: var(--cream);
+  letter-spacing: -1.5px; line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.next-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; font-weight: 300;
+  color: rgba(250,248,244,0.6);
+  line-height: 1.7; max-width: 440px;
+  margin-bottom: 40px;
+}
+
+.next-actions { display: flex; align-items: center; gap: 24px; }
+
+.btn-contact {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--burgundy);
+  background: var(--cream);
+  padding: 14px 28px; border-radius: 2px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-contact:hover { opacity: 0.88; transform: translateY(-2px); }
+
+.btn-resume {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(250,248,244,0.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(250,248,244,0.25);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.btn-resume:hover { color: var(--cream); }
+
+/* FOOTER */
+footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--cream); }
+.footer-logo { font-family: 'Hurricane', cursive; font-size: 26px; color: var(--ink); text-decoration: none; }
+.footer-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--ink-light); opacity: 0.5; }
+.footer-links { display: flex; gap: 32px; }
+.footer-links a { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink); }
+
+/* DEVICE NOTICE — desktop and laptop only. Tablets and phones see this instead. */
+.device-notice { display: none; }
+
+@media (max-width: 1024px) {
+  body > *:not(.device-notice) { display: none !important; }
+  body { overflow: hidden; height: 100vh; }
+
+  .device-notice {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .device-notice::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='dn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23dn)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .device-notice-nav {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative; z-index: 1;
+  }
+  .device-notice-logo {
+    font-family: 'Hurricane', cursive;
+    font-size: 26px;
+    color: var(--ink);
+  }
+
+  .device-notice-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 32px;
+    position: relative; z-index: 1;
+  }
+
+  .device-notice-icon {
+    width: 72px; height: 72px;
+    margin-bottom: 36px;
+  }
+  .device-notice-icon svg {
+    width: 100%; height: 100%;
+    stroke: #6B1230;
+    fill: none;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .device-notice-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #6B1230;
+    opacity: 0.75;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .device-notice-eyebrow::before,
+  .device-notice-eyebrow::after {
+    content: '';
+    width: 24px; height: 1px;
+    background: #6B1230;
+    opacity: 0.4;
+  }
+
+  .device-notice-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.28;
+    max-width: 320px;
+    margin-bottom: 8px;
+  }
+  .device-notice-title em {
+    font-style: italic;
+    color: #6B1230;
+  }
+
+  .device-notice-rule {
+    width: 40px; height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .device-notice-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.75;
+    max-width: 300px;
+    margin-bottom: 36px;
+  }
+
+  .device-notice-sig {
+    font-family: 'Hurricane', cursive;
+    font-size: 30px;
+    color: #6B1230;
+    opacity: 0.65;
+  }
+
+  .device-notice-footer {
+    padding: 24px 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+  .device-notice-footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ink-light);
+    opacity: 0.4;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="device-notice">
+  <div class="device-notice-nav">
+    <span class="device-notice-logo">Kulsum Mohammed</span>
+  </div>
+  <div class="device-notice-body">
+    <div class="device-notice-icon">
+      <svg viewBox="0 0 64 64"><path d="M8 14a3 3 0 0 1 3-3h18v40H11a3 3 0 0 1-3-3V14Z"/><path d="M56 14a3 3 0 0 0-3-3H35v40h18a3 3 0 0 0 3-3V14Z"/><path d="M29 11v40"/><path d="M14 20h9M14 27h9M14 34h6M41 20h9M41 27h9M41 34h6"/></svg>
+    </div>
+    <p class="device-notice-eyebrow">A Note</p>
+    <h1 class="device-notice-title">This portfolio is best experienced<br>on <em>desktop.</em></h1>
+    <div class="device-notice-rule"></div>
+    <p class="device-notice-text">I'm currently crafting the mobile and tablet experience. For now, please view it on a laptop or desktop for the best experience.</p>
+    <p class="device-notice-sig">Kulsum</p>
+  </div>
+  <div class="device-notice-footer">
+    <p>See you on a bigger screen</p>
+  </div>
+</div>
+
+
+<nav>
+  <a href="index.html" class="nav-logo">Kulsum Mohammed</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left reveal">
+    <p class="hero-issue">Issue 01 &nbsp;·&nbsp; The Story</p>
+    <p class="hero-label">About</p>
+    <h1 class="hero-headline">
+      Designing brands<br>
+      people <em>remember.</em><br>
+      Building products<br>
+      people use.<br>
+      Growing companies<br>
+      people trust.
+    </h1>
+    <p class="hero-tagline">Brand, Design & Growth Consultant, currently working with Tylt. Designer, strategist, builder, in that order.</p>
+  </div>
+  <div class="hero-right">
+    <div class="portrait-placeholder">
+      <img src="images/kulsum-portrait.jpg" alt="Kulsum Mohammed" class="portrait-img" />
+      <span class="portrait-label">Portrait: Kulsum Mohammed</span>
+    </div>
+  </div>
+</section>
+
+<!-- THE STORY -->
+<section class="story reveal">
+  <div class="story-label-col">
+    <p class="story-label-text">The Story</p>
+    <div class="story-label-rule"></div>
+    <p class="story-note" id="storyNote"></p>
+  </div>
+  <div class="story-content">
+    <p class="story-issue-tag">In her own words</p>
+    <div class="story-text">
+      <p class="story-drop">I like being the person <span class="story-annotated" data-note="Usually building something that doesn't have a shape yet.">founders</span> call when a product is starting to come together, but the story around it hasn't quite caught up yet.</p>
+      <p>Most people know me as a <span class="story-annotated" data-note="Still true. Just not the whole story anymore.">designer</span>. That's where I started.</p>
+      <p>But somewhere along the way, I became more interested in everything happening around the design.</p>
+      <div class="story-questions">
+        <p class="story-question">Why does one product instantly make sense while another loses you in thirty seconds?</p>
+        <p class="story-question">Why do some brands feel obvious while others need three paragraphs to explain themselves?</p>
+        <p class="story-question">Why do some beautiful websites still fail to convert?</p>
+      </div>
+      <p>Those questions slowly pulled me into product thinking, positioning, websites, marketing and growth.</p>
+      <p>Today my work rarely stays inside one box. I might redesign a landing page, rewrite the messaging, improve the onboarding, create a launch strategy, build the website, design the sales deck, and help the founders tell the story.</p>
+      <p>To me, those aren't separate projects. They're all different ways of solving the same problem. Helping people understand why a product matters.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE NUMBERS -->
+<section class="numbers reveal">
+  <div class="numbers-inner">
+    <div class="number-item">
+      <div class="number-val">6+</div>
+      <div class="number-label">Years creating brands, products and campaigns</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">40+</div>
+      <div class="number-label">Brands built from scratch or rebuilt from the ground up</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">100K+</div>
+      <div class="number-label">Users acquired across products I've worked on</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">4</div>
+      <div class="number-label">Disciplines practiced at the same time</div>
+      <div class="number-tags">
+        <span class="number-tag">Brand</span>
+        <span class="number-tag">Product</span>
+        <span class="number-tag">Growth</span>
+        <span class="number-tag">Motion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE TIMELINE -->
+<section class="timeline">
+  <div class="timeline-header reveal">
+    <p class="section-label">The Timeline</p>
+    <h2 class="timeline-title">How I got here.</h2>
+  </div>
+  <div class="timeline-items reveal">
+
+    <div class="timeline-item">
+      <div class="timeline-year">2021</div>
+      <div class="timeline-right">
+        <p class="timeline-role">Founder</p>
+        <p class="timeline-company">Creative Vision Studios</p>
+        <p class="timeline-desc">Started taking on freelance design work here, still running today, alongside everything else. This is where I first learned that good design is less about making something beautiful and more about making someone understand something.</p>
+      </div>
+    </div>
+
+    <div class="timeline-arrow">↓</div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div class="timeline-right">
+        <p class="timeline-role">Graphic Designer</p>
+        <p class="timeline-company">Basis</p>
+        <p class="timeline-desc">My introduction to fintech. Nine months learning how much trust gets built, or broken, through small design decisions in a regulated space.</p>
+      </div>
+    </div>
+
+    <div class="timeline-arrow">↓</div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2023–25</div>
+      <div class="timeline-right">
+        <p class="timeline-role">VP of Brand, Design & Marketing</p>
+        <p class="timeline-company">TLX Labs</p>
+        <p class="timeline-desc">Owned brand, product and marketing for two products under one company. Built Tylt's identity and website from zero to a live payments app doing $25K in daily transactions within two months. Then did the same for TradingLeagues, taking it to 100,000+ signups and $2M in annual recurring revenue.</p>
+      </div>
+    </div>
+
+    <div class="timeline-arrow">↓</div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2026</div>
+      <div class="timeline-right">
+        <p class="timeline-role">Brand, Design & Growth Consultant</p>
+        <p class="timeline-company">TLX Labs</p>
+        <p class="timeline-desc">Back working closely with the Tylt team, this time as a consultant, shaping brand, product communication and growth strategy, and leaning further into AI assisted workflows across design, content and the website itself.</p>
+      </div>
+    </div>
+
+    <div class="timeline-arrow">↓</div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">Now</div>
+      <div class="timeline-right">
+        <p class="timeline-role">Still building.</p>
+        <p class="timeline-company">The next chapter</p>
+        <p class="timeline-desc">Tylt, freelance work through Creative Vision Studios, and a growing interest in what comes next. If you're building something and think I might be able to help, I'd love to hear about it.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THE PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-header reveal">
+    <h2 class="philosophy-title">What I believe.</h2>
+    <p class="philosophy-sub">Five things I keep coming back to, regardless of the project.</p>
+  </div>
+
+  <div class="philosophy-carousel reveal">
+    <div class="philosophy-viewport">
+      <div class="philosophy-track" id="philosophyTrack">
+
+        <div class="philosophy-slide">
+          <span class="philosophy-slide-mark">Trust</span>
+          <p class="philosophy-slide-num">01 / 05</p>
+          <p class="philosophy-slide-text">People trust what they understand.</p>
+        </div>
+
+        <div class="philosophy-slide">
+          <span class="philosophy-slide-mark">Obvious</span>
+          <p class="philosophy-slide-num">02 / 05</p>
+          <p class="philosophy-slide-text">The best products don't need instructions.</p>
+        </div>
+
+        <div class="philosophy-slide">
+          <span class="philosophy-slide-mark">Build</span>
+          <p class="philosophy-slide-num">03 / 05</p>
+          <p class="philosophy-slide-text">Marketing starts when you decide what you're building.</p>
+        </div>
+
+        <div class="philosophy-slide">
+          <span class="philosophy-slide-mark">Strategy</span>
+          <p class="philosophy-slide-num">04 / 05</p>
+          <p class="philosophy-slide-text">Design without strategy is decoration. Strategy without design is a document nobody reads.</p>
+        </div>
+
+        <div class="philosophy-slide">
+          <span class="philosophy-slide-mark">Problem</span>
+          <p class="philosophy-slide-num">05 / 05</p>
+          <p class="philosophy-slide-text">The best creative work comes from caring more about the problem than the solution.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="philosophy-nav">
+      <div class="philosophy-arrows">
+        <button class="philosophy-arrow" id="philosophyPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="philosophy-arrow" id="philosophyNext" aria-label="Next">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="philosophy-dots" id="philosophyDots">
+        <button class="philosophy-dot active" data-index="0">01</button>
+        <button class="philosophy-dot" data-index="1">02</button>
+        <button class="philosophy-dot" data-index="2">03</button>
+        <button class="philosophy-dot" data-index="3">04</button>
+        <button class="philosophy-dot" data-index="4">05</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MIND -->
+<section class="mind">
+  <div class="mind-header reveal">
+    <p class="section-label">The Mind</p>
+    <h2 class="mind-title">Beyond the Work.</h2>
+  </div>
+  <div class="mind-items">
+    <div class="mind-item">
+      <div class="mind-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1.5 1-1.5 2"/><path d="M12 17h.01"/></svg>
+      </div>
+      <div class="mind-content">
+        <p class="mind-label">Question I Keep Coming Back To</p>
+        <p class="mind-question">Why do some products feel obvious while others need explaining?</p>
+      </div>
+    </div>
+
+    <div class="mind-item">
+      <div class="mind-icon">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="5.5"/><circle cx="15" cy="9" r="5.5"/><circle cx="12" cy="14.5" r="5.5"/></svg>
+      </div>
+      <div class="mind-content">
+        <p class="mind-label">Favourite Kind Of Project</p>
+        <p class="mind-question">The ones where brand, product and growth all have to come together from day one.</p>
+      </div>
+    </div>
+
+    <div class="mind-item">
+      <div class="mind-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v5.5L5 18a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3L14 8.5V3"/></svg>
+      </div>
+      <div class="mind-content">
+        <p class="mind-label">Current Experiment</p>
+        <p class="mind-question">Using AI to build products faster without making them feel less human.</p>
+      </div>
+    </div>
+
+    <div class="mind-item">
+      <div class="mind-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="mind-content">
+        <p class="mind-label">Something I Notice</p>
+        <p class="mind-question">Packaging, onboarding flows, restaurant menus, airport signs. Good design hides in everyday things.</p>
+      </div>
+    </div>
+
+    <div class="mind-item">
+      <div class="mind-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a5 5 0 0 1-6.1 6.1L7 20l-3-3 7.7-7.7a5 5 0 0 1 6.1-6.1z"/></svg>
+      </div>
+      <div class="mind-content">
+        <p class="mind-label">How I Learn</p>
+        <p class="mind-question">I rarely finish courses. I build things until they work.</p>
+      </div>
+    </div>
+
+    <div class="mind-item">
+      <div class="mind-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10 8 8 0 0 0-8-8 6 6 0 0 0-6 6 4 4 0 0 0 4 4 2 2 0 0 0 2-2"/></svg>
+      </div>
+      <div class="mind-content">
+        <p class="mind-label">Current Rabbit Hole</p>
+        <p class="mind-question">Stablecoins, AI agents and why enterprise software still feels harder than it needs to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUN FACTS -->
+<section class="facts">
+  <div class="facts-inner reveal">
+    <p class="facts-label">Things that are probably true</p>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-6 6c0 2.2 1.2 3.6 2.2 4.6.6.6 1 .9 1.1 1.9h5.4c.1-1 .5-1.3 1.1-1.9C16.8 12.6 18 11.2 18 9a6 6 0 0 0-6-6z"/></svg>
+        </div>
+        <p class="fact-text">My notes app has more product ideas in it than grocery lists.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <p class="fact-text">I notice a confusing onboarding flow almost immediately.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <p class="fact-text">I almost always sketch before I open Figma.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6Z"/></svg>
+        </div>
+        <p class="fact-text">I'm usually testing a new AI tool every week.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </div>
+        <p class="fact-text">I spend far too much time studying websites I admire.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <p class="fact-text">Most of my LinkedIn posts start as something I noticed while using a product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MANIFESTO -->
+<section class="manifesto reveal">
+  <div class="manifesto-inner">
+    <p class="manifesto-label">Personal Manifesto</p>
+    <h2 class="manifesto-text">
+      Everything is<br>
+      <em>connected.</em>
+    </h2>
+    <p class="manifesto-list">The brand &nbsp;·&nbsp; The website &nbsp;·&nbsp; The product &nbsp;·&nbsp; The launch &nbsp;·&nbsp; The story</p>
+    <div class="manifesto-rule"></div>
+    <p class="manifesto-sub">Most companies treat them like separate projects. I don't.</p>
+  </div>
+</section>
+
+<!-- THE NEXT CHAPTER -->
+<section class="next-chapter">
+  <span class="next-chapter-deco">Hello.</span>
+  <div class="next-chapter-inner reveal">
+    <p class="next-label">The Next Chapter</p>
+    <h2 class="next-title">If you're building something meaningful, I'd love to hear about it.</h2>
+    <p class="next-sub">I'm always open to conversations about interesting problems, whether that's a full time role, a freelance project, or just a good brief.</p>
+    <div class="next-actions">
+      <a href="contact.html" class="btn-contact">Get in touch →</a>
+      <a href="#" class="btn-resume">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo">Kulsum Mohammed</a>
+  <p class="footer-copy">© 2025 Kulsum Mohammed</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/kulsum-m-b54b56a4/" target="_blank">LinkedIn</a>
+    <a href="mailto:kulsumlko@gmail.com">Email</a>
+    <a href="https://twitter.com/kulsummohd26" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/creativevision_studios/" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => observer.observe(el));
+
+// FUN FACTS — staggered bounce-in
+const factCards = document.querySelectorAll('.fact-card');
+const factObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      factCards.forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 90);
+      });
+      factObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+if (factCards.length) factObserver.observe(document.querySelector('.facts-grid'));
+
+// THE MIND — connecting line draws in, items fade in one by one
+const mindItemsEl = document.querySelector('.mind-items');
+if (mindItemsEl) {
+  const mindItems = mindItemsEl.querySelectorAll('.mind-item');
+  const mindObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        mindItemsEl.classList.add('line-visible');
+        mindItems.forEach((item, i) => {
+          setTimeout(() => item.classList.add('visible'), 200 + i * 140);
+        });
+        mindObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.15 });
+  mindObserver.observe(mindItemsEl);
+}
+
+// THE PHILOSOPHY — carousel
+const philTrack = document.getElementById('philosophyTrack');
+if (philTrack) {
+  const philSlides = philTrack.querySelectorAll('.philosophy-slide');
+  const philDots = document.querySelectorAll('.philosophy-dot');
+  const philPrev = document.getElementById('philosophyPrev');
+  const philNext = document.getElementById('philosophyNext');
+  const philCarousel = document.querySelector('.philosophy-carousel');
+  let philIndex = 0;
+  let philTimer = null;
+
+  function goToSlide(i) {
+    philIndex = (i + philSlides.length) % philSlides.length;
+    philTrack.style.transform = `translateX(-${philIndex * 100}%)`;
+    philDots.forEach((dot, d) => dot.classList.toggle('active', d === philIndex));
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    philTimer = setInterval(() => goToSlide(philIndex + 1), 5000);
+  }
+  function stopAutoplay() {
+    if (philTimer) clearInterval(philTimer);
+  }
+
+  philNext.addEventListener('click', () => { goToSlide(philIndex + 1); startAutoplay(); });
+  philPrev.addEventListener('click', () => { goToSlide(philIndex - 1); startAutoplay(); });
+  philDots.forEach((dot) => {
+    dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.index)); startAutoplay(); });
+  });
+
+  philCarousel.addEventListener('mouseenter', stopAutoplay);
+  philCarousel.addEventListener('mouseleave', startAutoplay);
+
+  startAutoplay();
+}
+
+// THE STORY — interactive margin notes
+const storyNote = document.getElementById('storyNote');
+if (storyNote) {
+  document.querySelectorAll('.story-annotated').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      storyNote.textContent = el.dataset.note;
+      storyNote.classList.add('visible');
+    });
+    el.addEventListener('mouseleave', () => {
+      storyNote.classList.remove('visible');
+    });
+  });
+}
+</script>
+
+</body>
+</html>
