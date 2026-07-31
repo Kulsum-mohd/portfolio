@@ -898,8 +898,13 @@ const statObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.about-right').forEach(el => statObserver.observe(el));
 
   // Fix: reset page opacity if restored from back/forward cache
-   window.addEventListener('pageshow', function(event) {
+  window.addEventListener('pageshow', function(event) {
      document.body.style.opacity = '';
+     document.querySelectorAll('.book').forEach(book => {
+       book.style.transition = '';
+       book.style.transform = '';
+       book.style.opacity = '';
+     });
    });
   
 // BOOK CLICK — rise then fade to page
